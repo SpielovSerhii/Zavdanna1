@@ -1,0 +1,20 @@
+#define _CRT_SECURE_NO_DEPRECATE
+#include <stdio.h>
+#include <locale.h>
+
+int main() {
+    setlocale(LC_ALL, "Ukr");
+    int t1, t2, t3;
+    float time;
+
+    // Введення значень t1, t2, t3
+    printf("Введіть три значення: ");
+    scanf("%d %d %d", &t1, &t2, &t3);
+
+    // Обчислення загального часу
+    time = 1.0 / t1 + 1.0 / t2 + 1.0 / t3;
+
+    // Виведення результату
+    printf("Час, необхідний для з’їдання пирога: %.2f годин\n", 1 / time);
+
+    return 0;
