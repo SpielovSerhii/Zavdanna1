@@ -1,0 +1,50 @@
+#include <stdio.h>
+#include <math.h>
+#include <stdlib.h>
+#include <locale.h>
+
+int main() {
+    setlocale(LC_ALL, "Ukr");
+    int x1, y1, r1, x2, y2, r2;
+    double distance, sum_of_radii;
+    int intersection_points;
+
+    // Введення координат і радіусу першого кола
+    printf("Введіть координати та радіус першого кола (x1, y1, r1): ");
+    scanf("%d %d %d", &x1, &y1, &r1);
+
+    // Введення координат і радіусу другого кола
+    printf("Введіть координати та радіус другого кола (x2, y2, r2): ");
+    scanf("%d %d %d", &x2, &y2, &r2);
+
+    // Обчислення відстані між центрами кола
+    distance = sqrt(pow(x2 - x1, 2) + pow(y2 - y1, 2));
+
+    // Обчислення суми радіусів
+    sum_of_radii = r1 + r2;
+
+    // Перевірка умов перетину кола
+    if (distance < sum_of_radii) {
+        if (distance + ((r1 < r2) ? r1 : r2) < ((r1 > r2) ? r1 : r2)) {
+            // Одне коло повністю знаходиться всередині іншого кола
+            intersection_points = 0;
+        } else if (distance + ((r1 < r2) ? r1 : r2) == ((r1 > r2) ? r1 : r2)) {
+            // Кола торкаються одне одного в одній точці
+            intersection_points = 1;
+        } else {
+            // Кола перетинаються в двох точках
+            intersection_points = 2;
+        }
+    } else if (distance == sum_of_radii) {
+        // Кола торкаються зовнішнім чи внутрішнім касанням у одній точці
+        intersection_points = 1;
+    } else {
+        // Кола не перетинаються
+        intersection_points = 0;
+    }
+
+    // Виведення кількості точок перетину
+    printf("Кількість точок перетину: %d\n", intersection_points);
+
+    return 0;
+}
