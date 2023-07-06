@@ -1,0 +1,22 @@
+#include <stdio.h>
+#include <locale.h>
+
+int main() {
+  setlocale(LC_ALL, "Ukr");
+  int n, count = 0;
+  printf("Введіть натуральне число n (1 < n < 150): ");
+  scanf("%d", &n);
+
+  for (int i = 1; i <= n; i++) {
+    int quotient = n / i;
+    int remainder = n % i;
+
+    if (quotient == remainder) {
+      count++;
+    }
+  }
+
+  printf("Кількість рівних дільників числа %d is %d.\n", n, count);
+
+  return 0;
+}
