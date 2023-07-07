@@ -1,0 +1,33 @@
+#include <locale.h>
+#include <stdio.h>
+#include <string.h>
+
+int main() {
+  
+  char word[15];
+  int n;
+  int count = 0;
+
+  printf("Введіть слово: ");
+  scanf("%s", word);
+
+  n = strlen(word);
+
+  for (int i = 0; i < n; i++) {
+    for (int j = 0; j < n; j++) {
+      if (word[i] == word[j] && i != j) {
+        continue;
+      }
+
+      char temp = word[i];
+      word[i] = word[j];
+      word[j] = temp;
+
+      count++;
+    }
+  }
+
+  printf("Кількість можливих анаграм is: %d\n", count);
+
+  return 0;
+}
