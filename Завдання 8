@@ -3,7 +3,7 @@
 #include <string.h>
 
 int main() {
-  
+  setlocale(LC_ALL, "Ukr");
   char word[15];
   int n;
   int count = 0;
